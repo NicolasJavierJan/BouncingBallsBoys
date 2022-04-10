@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bouncingballsboys.BallController">
+   <children>
+      <Circle fx:id="blueBall" fill="DODGERBLUE" layoutX="150.0" layoutY="227.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="purpleBall" fill="#a41fff" layoutX="317.0" layoutY="201.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</AnchorPane>
