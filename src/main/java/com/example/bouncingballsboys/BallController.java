@@ -12,15 +12,16 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import java.lang.Thread.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class BallController implements Initializable {
 
-    @FXML private AnchorPane anchorPane;
-    @FXML private Circle blueBall;
-    @FXML private Circle purpleBall;
+    @FXML public AnchorPane anchorPane;
+    @FXML public  Circle blueBall;
+    @FXML public  Circle purpleBall;
 
     public void moveBBall() {
         Timeline timelineBlue = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
@@ -104,8 +105,27 @@ public class BallController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        moveBBall();
-        movePBall();
+        Thread thread1 = new Thread(){
+            public void run(){
+                try {
+                    sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                movePBall();
+            }
+        };
+
+        thread1.start();
+
+        Thread thread2 = new Thread(){
+            public void run(){
+                moveBBall();
+            }
+        };
+
+        thread2.start();
+
 
     }
 
