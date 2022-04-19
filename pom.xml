@@ -65,7 +65,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.bouncingballsboys/com.example.bouncingballsboys.BouncingBallsBoys
+                            <mainClass>com.example.bouncingballsboys/com.example.bouncingballsboys.Launcher
                             </mainClass>
                         </configuration>
                     </execution>
@@ -75,6 +75,15 @@
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>3.0.3</version>
+                <configuration>
+                    <includeTarget>false</includeTarget>
+                    <includes>
+                        <include>out/artifacts/BouncingBallsBoys_jar/BouncingBallsBoys.jar</include>
+                    </includes>
+                <processTypes>
+                    <web>java -jar out/artifacts/BouncingBallsBoys_jar/BouncingBallsBoys.jar</web>
+                </processTypes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
